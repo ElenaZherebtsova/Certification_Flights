@@ -10,23 +10,27 @@ import java.util.List;
 
 public class Main {
     public static void main(String[] args) {
-// создание и печать списка полетов.
+        // создание и печать списка полетов.
         FlightBuilder flightBuilder = new FlightBuilder();
         List<Flight> flights = flightBuilder.createFlights();
 
         System.out.println("Список всех полетов:");
-//        System.out.println(flights);
         flights.forEach(System.out::println);
-        // удаление дубликатов и печать нового списка
+
+        // Добавление сервисов по сортировке полётов.
         FligtSortService fligtSortService = new FligtSortService();
 
-//        System.out.println("Список полетов без дубликатов:");
-//        fligtSortService.deleteDublicates(flights).forEach(System.out::println);
-
-
+        // Сортировка по дате вылета: до текущего момента.
         System.out.println();
         System.out.println("Список полётов до текущего момента времени:");
         fligtSortService.sortBeforeNow(flights).forEach(System.out::println);
+
+        // Сортировка по времени: прибытие раньше отправления.
+        System.out.println();
+        System.out.println("Список полётов с временем прилёта раньше времени вылета:");
+        fligtSortService.sortArrivalBeforeDeparture(flights).forEach(System.out::println);
+
+
     }
 
 }

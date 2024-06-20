@@ -22,11 +22,19 @@ public class FligtSortService {
     public List<Flight> sortBeforeNow(List<Flight> flights) {
         List<Flight> sortedFlightsBeforeNow = flights.stream()
                 .filter(flight -> flight.getSegments().stream()
-                        .allMatch(segment -> segment.getDepartureDate().isBefore(LocalDateTime.now())))
+                        .allMatch(segment -> segment.getDepartureDate()
+                                .isBefore(LocalDateTime.now())))
                 .collect(Collectors.toList());
         return sortedFlightsBeforeNow;
     }
 
-
+    public List<Flight> sortArrivalBeforeDeparture(List<Flight> flights) {
+        List<Flight> sortedFlightsArrivalBeforeDepart = flights.stream()
+                .filter(flight -> flight.getSegments().stream()
+                        .allMatch(segment -> segment.getArrivalDate()
+                                .isBefore(segment.getDepartureDate())))
+                .collect(Collectors.toList());
+        return sortedFlightsArrivalBeforeDepart;
+    }
 
 }
