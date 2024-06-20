@@ -1,4 +1,4 @@
-package com.gridnine.testing;
+package com.gridnine.testing.service;
 
 import com.gridnine.testing.models.Flight;
 import com.gridnine.testing.models.Segment;
@@ -18,6 +18,8 @@ public class FlightBuilder {
                 //A normal flight with two hour duration
                 createFlight(threeDaysFromNow, threeDaysFromNow.plusHours(2)),
                 //A normal multi segment flight
+                createFlight(threeDaysFromNow, threeDaysFromNow.plusHours(2),
+                        threeDaysFromNow.plusHours(3), threeDaysFromNow.plusHours(5)),
                 createFlight(threeDaysFromNow, threeDaysFromNow.plusHours(2),
                         threeDaysFromNow.plusHours(3), threeDaysFromNow.plusHours(5)),
                 //A flight departing in the past
