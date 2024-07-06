@@ -20,16 +20,21 @@ public class Main {
         // Добавление сервисов по сортировке полётов.
         FligtSortService fligtSortService = new FligtSortService();
 
-        // Сортировка по дате вылета: до текущего момента.
+        // Сортировка по дате вылета: после текущего момента.
         System.out.println();
-        System.out.println("Список полётов до текущего момента времени:");
+        System.out.println("Список полётов после текущего момента времени:");
         fligtSortService.sortBeforeNow(flights).forEach(System.out::println);
 
-        // Сортировка по времени: прибытие раньше отправления.
+        // Сортировка по времени: прибытие позже отправления.
         System.out.println();
-        System.out.println("Список полётов с временем прилёта раньше времени вылета:");
+        System.out.println("Список полётов с временем прилёта позже времени вылета:");
         fligtSortService.sortArrivalBeforeDeparture(flights).forEach(System.out::println);
 
+
+        // Сортировка по времени полёта более 2-х часов.
+        System.out.println();
+        System.out.println("Список полётов с временем пути не более 2-х часов:");
+        fligtSortService.sortFlightTimeMoreTwoHours(flights).forEach(System.out::println);
 
     }
 

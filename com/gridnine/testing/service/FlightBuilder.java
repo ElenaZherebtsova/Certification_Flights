@@ -8,9 +8,7 @@ import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
 
-/**
- * Factory class to get sample list of flights.
- */
+
 public class FlightBuilder {
     public static List<Flight> createFlights() {
         LocalDateTime threeDaysFromNow = LocalDateTime.now().plusDays(3);
