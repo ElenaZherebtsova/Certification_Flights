@@ -3,23 +3,15 @@ package com.gridnine.testing.service;
 import com.gridnine.testing.models.Flight;
 import com.gridnine.testing.models.Segment;
 
+import java.sql.Time;
 import java.time.Duration;
+import java.time.LocalDate;
 import java.time.LocalDateTime;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.stream.Collectors;
 
 public class FligtSortService {
-
-    public List<Flight> deleteDublicates(List<Flight> list) {
-        List<Flight> newList = new ArrayList<>();
-        for (Flight element : list) {
-            if (!newList.contains(element)) {
-                newList.add(element);
-            }
-        }
-        return newList;
-    }
 
     //  Исключение вылетов раньше текущего момента.
     public List<Flight> sortBeforeNow(List<Flight> flights) {

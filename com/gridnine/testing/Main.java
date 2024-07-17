@@ -17,7 +17,6 @@ public class Main {
         System.out.println("Список всех полетов:");
         flights.forEach(System.out::println);
 
-        // Добавление сервисов по сортировке полётов.
         FligtSortService fligtSortService = new FligtSortService();
 
         // Сортировка по дате вылета: после текущего момента.
